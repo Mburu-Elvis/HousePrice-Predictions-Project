@@ -5,10 +5,12 @@ from urllib import parse
 import pickle
 import pandas as pd
 import numpy as np
+import os
 
 
 app = Flask(__name__)
-pwd = parse.quote('') # replace with your DB password
+my_var = os.environ.get('DB_PWD')
+pwd = parse.quote(my_var) # replace with your DB password
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+mysqldb://root:{pwd}@localhost:3306/housePrediction"
