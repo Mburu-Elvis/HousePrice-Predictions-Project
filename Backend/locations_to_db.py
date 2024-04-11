@@ -1,10 +1,12 @@
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import declarative_base, sessionmaker
 import pandas as pd
-import urllib
+import os
 
 
-pwd = urllib.parse.quote('') # replace with your db password
+app = Flask(__name__)
+my_var = os.environ.get('DB_PWD')
+pwd = parse.quote(my_var) # replace with your DB password
 engine = create_engine(f"mysql+mysqldb://root:{pwd}@localhost:3306/housePrediction")
 
 Base = declarative_base()
